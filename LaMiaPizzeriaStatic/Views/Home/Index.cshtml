@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+    Pizza margherita = new Pizza("Margherita", "Passata di pomodoro, Mozzarella", "https://upload.wikimedia.org/wikipedia/commons/c/c8/Pizza_Margherita_stu_spivack.jpg", 6.50);
+    Pizza quattroStagioni = new Pizza("4 Stagioni", "Passata di pomodoro, Mozzarella, Prosciutto cotto, Carcofini, Funghi, Pomodorini", "https://www.petitchef.it/imgupl/recipe/pizza-4-stagioni--449891p695427.jpg", 8.00);
+    Pizza marinara = new Pizza("Marinara", "Passata di pomodoro, Aglio, Olio", "https://upload.wikimedia.org/wikipedia/commons/1/11/Pizza_marinara.jpg", 5.50);
+    Pizza prosciuttoFughi = new Pizza("Prosciutto e Funghi", "Passata di pomodoro, Mozzarella, Prosciutto cotto, Funghi", "https://i1.wp.com/www.piccolericette.net/piccolericette/wp-content/uploads/2019/10/4102_Pizza.jpg?resize=895%2C616&ssl=1", 7.50);
+    List<Pizza> pizze = new List<Pizza>();
+    pizze.Add(margherita);
+    pizze.Add(prosciuttoFughi);
+    pizze.Add(quattroStagioni);
+    pizze.Add(marinara);
+    Console.WriteLine("Ecco le tue pizze:");
+    foreach(Pizza pizza in pizze)
+    {
+        Console.WriteLine(pizza.Name + pizza.Description + pizza.UrlPhoto + pizza.Price);
+    }
+
+}
+
+<head>
+    <body>
+        <section>
+            <div class="text-center">
+                <h1 class="text-danger text-uppercase">La mia pizzeria static</h1>
+                @{
+                    foreach(Pizza pizza in pizze)
+                    {
+                        <div>
+                             <div >
+                                <img style="width:200px" src="@pizza.UrlPhoto" alt="@pizza.Name" />
+                             </div>
+                             <div>
+                                <strong> @pizza.Name </strong>: @pizza.Description. @pizza.Price€
+                             </div>
+                        </div>
+                    }
+                }
+            </div>
+        </section>
+    </body>
+</head>
